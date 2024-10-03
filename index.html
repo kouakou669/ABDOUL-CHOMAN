@@ -786,77 +786,130 @@
       - BANNER
     -->
 
-    <div class="banner">
 
-      <div class="container">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel d'Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        <div class="slider-container has-scrollbar">
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%; /* Prend toute la largeur */
+            height: 400px; /* Hauteur fixe du carrousel */
+        }
 
-          <div class="slider-item">
+        .slider-item {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%; /* Prend toute la hauteur du conteneur */
+        }
 
+        .slider-item.active {
+            display: block; /* Affiche l'élément actif */
+        }
+
+        .banner-img {
+            width: 100%; /* Prend toute la largeur du conteneur */
+            height: 100%; /* Prend toute la hauteur du conteneur */
+            object-fit: cover; /* Garde le ratio d'aspect et remplit le conteneur */
+            display: block; /* Évite les espaces en bas des images */
+        }
+
+        .banner-content {
+            position: absolute;
+            bottom: 20px; /* Espacement du bas */
+            left: 20px; /* Espacement de gauche */
+            color: white; /* Couleur du texte */
+            background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .banner-title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .banner-subtitle,
+        .banner-text {
+            margin: 5px 0;
+        }
+
+        .banner-btn {
+            background-color: #ff5733; /* Couleur du bouton */
+            color: white; /* Couleur du texte du bouton */
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .banner-btn:hover {
+            background-color: #c70000; /* Couleur du bouton au survol */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="slider-container has-scrollbar">
+        <div class="slider-item active">
             <img src="./assets/images/banner-1.jpg" alt="thomas Tech" class="banner-img">
-
             <div class="banner-content">
-
-              <p class="banner-subtitle">choman boutique</p>
-
-              <h2 class="banner-title">LES RIZ  DE BONNE QUALITÉ MOINS CHÈRE</h2>
-
-              <p class="banner-text">
-                riz moins  chère  à  tout  prix 
-              </p>
-
-              <a href="#" class="banner-btn">Disponible</a>
-
+                <p class="banner-subtitle">choman boutique</p>
+                <h2 class="banner-title">LES RIZ DE BONNE QUALITÉ MOINS CHÈRE</h2>
+                <p class="banner-text">riz moins chère à tout prix</p>
+                <a href="#" class="banner-btn">Disponible</a>
             </div>
-
-          </div>
-
-          <div class="slider-item">
-
-            <img src="./assets/images/banner-2.jpg" alt="modern sunglasses" class="banner-img">
-
-            <div class="banner-content">
-
-              <p class="banner-subtitle">Riz Africaine</p>
-
-              <h2 class="banner-title">LA CONCENTRATION DU RIZ EN BONNE QUALITÉ</h2>
-
-              <p class="banner-text">
-                chez choman Boutique  toutes  est  simple 
-              </p>
-
-              <a href="#" class="banner-btn">Disponible</a>
-
-            </div>
-
-          </div>
-
-          <div class="slider-item">
-
-            <img src="./assets/images/banner-3.jpg" alt="new fashion summer sale" class="banner-img">
-
-            <div class="banner-content">
-
-              <p class="banner-subtitle"> rizière </p>
-
-              <h2 class="banner-title">TOUJOURS NOUVEAUTÉ CHEZ CHOMAN BOUTIQUE</h2>
-
-              <p class="banner-text">
-                prix  indépendantes 
-              </p>
-
-              <a href="#" class="banner-btn">disponible</a>
-
-            </div>
-
-          </div>
-
         </div>
-
-      </div>
-
+        <div class="slider-item">
+            <img src="./assets/images/banner-2.jpg" alt="Riz Africaine" class="banner-img">
+            <div class="banner-content">
+                <p class="banner-subtitle">Riz Africaine</p>
+                <h2 class="banner-title">LA CONCENTRATION DU RIZ EN BONNE QUALITÉ</h2>
+                <p class="banner-text">chez choman Boutique tout est simple</p>
+                <a href="#" class="banner-btn">Disponible</a>
+            </div>
+        </div>
+        <div class="slider-item">
+            <img src="./assets/images/banner-3.jpg" alt="rizière" class="banner-img">
+            <div class="banner-content">
+                <p class="banner-subtitle">rizière</p>
+                <h2 class="banner-title">TOUJOURS NOUVEAUTÉ CHEZ CHOMAN BOUTIQUE</h2>
+                <p class="banner-text">prix indépendantes</p>
+                <a href="#" class="banner-btn">disponible</a>
+            </div>
+        </div>
     </div>
+</div>
+
+<script>
+    const items = document.querySelectorAll('.slider-item');
+    let currentIndex = 0;
+
+    function showNextItem() {
+        items[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % items.length;
+        items[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextItem, 2000); // Change d'image toutes les 2 secondes
+</script>
+
+</body>
+</html>
+
+
+    
 
 
 
